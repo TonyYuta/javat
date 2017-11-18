@@ -28,7 +28,6 @@ public class Server extends SmartHome {
 	String descriptionServer = "Control Smart Home";
 	
 	Server(int projId, float version, String projName, String description, String projType, int compId, String compName, String descriptionServer) {
-		//super(projId, version, projName, description, projType);
 		super(projId, version, projName, description, projType);
 		this.compId = compId;
 		this.compName = compName;

@@ -56,8 +56,8 @@ public class ServerTest {
 	public void testServerInfo() {
 		String expected = "Server controls components in Smart Home";
 		Assert.assertEquals(ser.controlStairsLight(), expected, "controlStairsLight doesn't match to expected");
-	
 	}
+	
 	
 	
 
