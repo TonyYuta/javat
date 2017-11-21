@@ -49,8 +49,8 @@ public class Control extends Server {
 	
 	@Override
 	String info() {
-		return "This is parent of " + super.description + "This class controls " + this.controlType1 + 
-				" and " + this.controlType2 + " " + this.description;
+		return "This is parent of " + super.description + " | This class controls " + this.controlType1 + 
+				" and " + this.controlType2 + " | " + this.description;
 	}
 	
 	@Override

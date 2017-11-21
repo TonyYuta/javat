@@ -29,7 +29,9 @@ import org.testng.annotations.Test;
  */
 public class ControlTest {
 	
+	Server ser;
 	Control con;
+	
 	
 	@BeforeClass(alwaysRun = true)
 	public void beforeClassSetUp() {
@@ -47,7 +49,19 @@ public class ControlTest {
 				 "controlType2", 
 				 "description: Control"
 				 ); 
+		
+		ser = new Server(
+				8, 
+				14.2F, 
+				"Smart Home", 
+				"Smart Home proj", 
+				"Control, adjust, and update home devices", 
+				12, 
+				"Server", 
+				"Server controls devices"
+				);
 	}
+	
 	
 	@AfterClass(alwaysRun = true)
 	public void afterClassTearDown() {
@@ -69,4 +83,23 @@ public class ControlTest {
 		String expected = "Control Stairs Light component from Control class | version: 5.6";
 		Assert.assertEquals(con.controlStairsLight() + " | version: " + con.version, expected, "testcontrol doesn't match expected");
 	}
+	
+	@Test(enabled = true, groups = {"constructor", "this", "super", "override"}, priority = 1)
+	public void testControlInfoOverride() {
+		String expected = "This is parent of Smart Home Proj | This class controls control Type1 and controlType2 | Smart Home Proj";
+		Assert.assertEquals(con.info(), expected, "overrided method info doesn't match to expected");
+	}
+	
+	@Test(enabled = true, groups = {"constructor", "this", "override"}, priority = 1)
+	public void testOriginInfoMethodFromParent() {
+		String expected = "This component is about Server";
+		Assert.assertEquals(ser.info(), expected, "origin info method returns incorrect data");
+	}
+	
+	@Test(enabled = true, groups = {"constructor", "this", "child", "parent", "override"}, priority = 1)
+	public void testOverridedInfoMethodFromChild() {
+		String expected = "This is parent of Smart Home Proj | This class controls control Type1 and controlType2 | Smart Home Proj";
+		Assert.assertEquals(con.info(), expected, "origin info method returns incorrect data");
+	}
+
 }
