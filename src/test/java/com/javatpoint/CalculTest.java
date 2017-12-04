@@ -8,10 +8,6 @@
 
 package com.javatpoint;
 
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -61,7 +57,7 @@ public class CalculTest {
 		int first = 114;
 		int second = 86;
 		long expected = 200L;
-		AssertJUnit.assertEquals((calc.sum(first, second)), expected, "long sum 2 args doesn't match to expected");
+		Assert.assertEquals((calc.sum(first, second)), expected, "long sum 2 args doesn't match to expected");
 	}
 
 	@Test(enabled = true, groups = {"calc", "overloading", "this"}, priority = 5)
@@ -70,7 +66,7 @@ public class CalculTest {
 		int second = 18;
 		int third = 40;
 		long expected = 250L;
-		AssertJUnit.assertEquals(calc.sum(first, second, third), expected, "long sum 3 args doesn't match to expected");
+		Assert.assertEquals(calc.sum(first, second, third), expected, "long sum 3 args doesn't match to expected");
 	}
 	
 	@Test(enabled = true, groups = {"calc", "overloading", "this"}, priority = 5)
@@ -91,5 +87,6 @@ public class CalculTest {
 		final double DELTA = 0.00001D;
 		Assert.assertEquals(calc.sum(first, second, third), expected, DELTA, "double sum result doesn't match to expected");
 	}
+	
 	
 }
